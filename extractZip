@@ -1,0 +1,27 @@
+console.log("starting!");
+
+var AdmZip = require('adm-zip');
+
+//Declare zip to extract, and create array of zip contents
+var zip = new AdmZip("./test/my_file.zip");
+zip.extractAllTo("test/zipcontent/", true);
+
+var zipEntries = zip.getEntries(); 
+
+var fs = require('fs');
+var writeStream = fs.createWriteStream("test_folder/zip_info.json");
+
+//Write zip file information to json file
+writeStream.once('open', function(fd) {
+	//console.log(JSON.stringify(zipEntries)); 
+	writeStream.write(JSON.stringify(zipEntries));
+	writeStream.end();
+});
+
+//Read zip file info from json file
+fs.readFile('test_folder/zip_info.json', 'utf8', function (err,data) {
+	if (err) {
+		return console.log(err);
+	}
+	console.log(JSON.parse(data));
+});
