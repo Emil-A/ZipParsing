@@ -1,11 +1,12 @@
 //Declare Requirements
 //var request = require('request')
-var https   = require('http');
+var https   = require('https');
 var fs      = require('fs');
 
 //request = request.defaults({proxy: process.env.HTTP_PROXY });
 var options = {
-	proxy: 'process.env.HTTP_PROXY', //not sure if this has any effect
+	//proxy: 'process.env.HTTP_PROXY', //not sure if this has any effect
+	proxy: 'process.env.HTTPS_PROXY',
 	hostname  : 'codeload.github.com',
 	port      : 443,
 	path      : '/wet-boew/wet-boew/zip/master',
