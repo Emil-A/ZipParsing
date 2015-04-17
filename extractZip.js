@@ -4,8 +4,8 @@ console.log("starting!");
 var AdmZip = require('adm-zip'); //npm install adm-zip
 
 //Declare zip to extract, and create array of zip contents
-var zip = new AdmZip("./test/my_file.zip");
-zip.extractAllTo("test/zipcontent/", true);
+var zip = new AdmZip("./test/master.zip");
+zip.extractAllTo("test_folder/", true);
 
 var zipEntries = zip.getEntries(); 
 
