@@ -1,6 +1,7 @@
 console.log("starting!");
 
-var AdmZip = require('adm-zip');
+//https://github.com/cthackers/adm-zip/wiki/ADM-ZIP
+var AdmZip = require('adm-zip'); //npm install adm-zip
 
 //Declare zip to extract, and create array of zip contents
 var zip = new AdmZip("./test/my_file.zip");
