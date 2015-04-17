@@ -18,13 +18,13 @@ var file = fs.createWriteStream("test_folder/master.zip");
 var req = https.request(options, function(res) {
 	console.log("statusCode: ", res.statusCode);
 	console.log("headers: ", res.headers);
-	res.on('data', function(d) {
-		file.write(d);
+	res.on('data', function(data) {
+		file.write(data);
 	});
 });
 req.end();
  
-req.on('error', function(e) {
-	console.error(e);
+req.on('error', function(err) {
+	console.error(err);
 });
 
